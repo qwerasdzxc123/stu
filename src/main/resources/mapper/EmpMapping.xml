@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wj.stu.mapper.EmpMapper">
+
+    <insert id="insertUser" parameterType="com.wj.stu.entity.Employee">
+        INSERT INTO tbl_employee (id,last_name,email,gender,age,version)
+        values(#{id},#{lastName},#{email},#{gender},#{age},#{version})
+    </insert>
+
+    <delete id="deleteUserById">
+        DELETE FROM tbl_employee where id = #{id}
+    </delete>
+
+    <update id="updateUserById">
+        UPDATE
+    	    tbl_employee
+        SET
+            last_name=#{lastName},
+            email=#{email},
+            gender=#{gender},
+            age=#{age},
+            version=#{version}
+        WHERE
+    	    id=#{id}
+    </update>
+
+    <select id="selectUserById" resultType="com.wj.stu.entity.Employee">
+        SELECT *
+        FROM tbl_employee
+        WHERE id = #{id}
+    </select>
+
+</mapper>
+
